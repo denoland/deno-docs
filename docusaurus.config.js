@@ -25,9 +25,7 @@ const config = {
           path: "runtime",
           routeBasePath: "runtime",
           sidebarPath: require.resolve("./sidebars/runtime.js"),
-          remarkPlugins: [
-            findReplace,
-          ],
+          remarkPlugins: [findReplace],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -60,9 +58,7 @@ const config = {
         path: "deploy",
         routeBasePath: "/deploy",
         sidebarPath: require.resolve("./sidebars/deploy.js"),
-        remarkPlugins: [
-          findReplace,
-        ],
+        remarkPlugins: [findReplace],
       },
     ],
     [
@@ -72,9 +68,7 @@ const config = {
         path: "subhosting",
         routeBasePath: "/subhosting",
         sidebarPath: require.resolve("./sidebars/subhosting.js"),
-        remarkPlugins: [
-          findReplace,
-        ],
+        remarkPlugins: [findReplace],
       },
     ],
     // Enables our custom pages in "src" to use Tailwind classes
@@ -95,16 +89,15 @@ const config = {
         name: "node-polyfill",
         configureWebpack(_config, _isServer) {
           return {
-            plugins: [
-              new NodePolyfillPlugin(),
-            ],
+            plugins: [new NodePolyfillPlugin()],
           };
         },
       };
     },
+    "@orama/plugin-docusaurus-v3",
   ],
 
-  themeConfig: ({
+  themeConfig: {
     // Social card
     image: "img/social.png",
     colorMode: {
@@ -253,45 +246,7 @@ const config = {
       darkTheme: darkCodeTheme,
       additionalLanguages: ["powershell", "diff"],
     },
-    algolia: {
-      // The application ID provided by Algolia
-      appId: "KAQ4QIALEB",
-
-      // Public API key: it is safe to commit it
-      apiKey: "0795dfc12048ff344a54bb4c04c9000b",
-
-      indexName: "deno",
-
-      insights: true,
-
-      // Optional: see doc section below
-      contextualSearch: true,
-
-      // Optional: Specify domains where the navigation should occur through
-      // window.location instead on history.push. Useful when our Algolia
-      // config crawls multiple documentation sites and we want to navigate
-      // with window.location.href to them.
-      // externalUrlRegex: "external\\.com|domain\\.com",
-
-      // Optional: Replace parts of the item URLs from Algolia. Useful when
-      // using the same search index for multiple deployments using a
-      // different baseUrl. You can use regexp or string in the `from` param.
-      // For example: localhost:3000 vs myCompany.com/docs
-      /*
-        replaceSearchResultPathname: {
-          from: "/docs/", // or as RegExp: /\/docs\//
-          to: "/",
-        },
-        */
-
-      // Optional: Algolia search parameters
-      searchParameters: {},
-
-      // Optional: path for search page that enabled by default (`false`
-      // to disable it)
-      searchPagePath: "search",
-    },
-  }),
+  },
 };
 
 export default config;
