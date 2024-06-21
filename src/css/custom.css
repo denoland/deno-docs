@@ -150,6 +150,16 @@ html[data-theme="dark"] .navbar {
   box-shadow: var(--ifm-navbar-shadow-dark);
 }
 
+html[data-theme="dark"] .secondary-navbar {
+  background-color: var(--gray-4);
+}
+
+/* Multiple selectors to override defaults in light mode */
+
+html[data-theme="light"] .secondary-navbar {
+  border-top: 1px solid var(--gray-000);
+}
+
 html[data-theme="dark"]
   .codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
   border-bottom: 1px solid var(--offblack);
@@ -264,6 +274,12 @@ td p:last-child {
     var(--ifm-navbar-padding-horizontal);
 }
 
+.secondary-navbar-content {
+  padding: var(--ifm-navbar-padding-vertical)
+    var(--ifm-navbar-padding-horizontal);
+  margin: 0;
+}
+
 .table-of-contents a {
   line-height: 1.5;
 }
@@ -341,6 +357,17 @@ td p:last-child {
   padding: 0 2px;
 }
 
+@media (max-width: 996px) {
+  .secondary-navbar .navbar__item {
+    display: block;
+  }
+}
+
+.secondary-navbar-content a:first-child {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
 .navbar__link {
   margin-left: 10px;
   margin-right: 10px;
@@ -368,6 +395,10 @@ td p:last-child {
 
 .navbar__title {
   font-size: 1.3rem;
+}
+
+.secondary-navbar {
+  background-color: var(--white);
 }
 
 .dropdown > .navbar__link:after {
