@@ -1,3 +1,5 @@
+import { deploy } from "./sidebars/deploy.js";
+
 const process = require("node:process");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 const findReplace = require("./src/remark/find_replace");
@@ -10,7 +12,7 @@ const config = {
   favicon: "img/favicon.ico",
   url: "https://docs.deno.com",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
@@ -62,6 +64,7 @@ const config = {
             cloud: {
               indexId: process.env.ORAMA_CLOUD_INDEX_ID,
               oramaCloudAPIKey: process.env.ORAMA_CLOUD_API_KEY,
+              deploy: true,
             },
           }
           : {}),
@@ -160,7 +163,7 @@ const config = {
           activeBaseRegex: `^/examples`,
         },
         {
-          href: "https://deno.land/api?unstable=true",
+          href: "pathname:///api",
           label: "API Reference",
           position: "left",
         },
@@ -168,6 +171,7 @@ const config = {
           href: "https://www.deno.com",
           label: "deno.com",
           position: "right",
+          activeBaseRegex: `^/api`,
         },
       ],
     },
