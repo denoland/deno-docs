@@ -235,11 +235,6 @@ const sidebars = {
           label: "deno upgrade",
           id: "manual/tools/upgrade",
         },
-        {
-          type: "doc",
-          label: "deno vendor",
-          id: "manual/tools/vendor",
-        },
       ],
     },
     {
@@ -255,6 +250,11 @@ const sidebars = {
         "manual/basics/testing/behavior_driven_development",
         "manual/basics/testing/snapshot_testing",
       ],
+    },
+    {
+      type: "doc",
+      label: "Vendoring",
+      id: "manual/basics/vendoring/index",
     },
     {
       type: "category",
