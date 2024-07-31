@@ -61,3 +61,22 @@ Run these commands to get started
   // Run the tests
   deno test
 ```
+
+You can append a flag `--lib` to add extra parameters like add name, version and exports fields to deno.json.
+
+```sh
+$ deno init my_deno_project --lib
+✅ Project initialized
+
+...
+
+$ cat deno.json
+{
+  "name" : "my_deno_project",
+  "version": "1.0.0",
+  "exports": {},
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
